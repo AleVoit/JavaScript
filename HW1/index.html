@@ -20,8 +20,8 @@
             }  while (patronymic === "" || patronymic === " " || isNaN(patronymic)=== false);
             do {
                 var age=prompt("Введите ваш возраст в годах");
-                if (age === "" || age === " " || isNaN(age)) alert("Было введено не число, попробуйте еще раз");
-            }  while (age === "" || age === " " || isNaN(age));
+                if (age === "" || age === " " || isNaN(age) || age<=0) alert("Вы ошиблись, попробуйте еще раз");
+            }  while (age === "" || age === " " || isNaN(age) || age<=0);
             age = Number(age);
             var age5 = age + 5;
             var gender = confirm("Ваш пол - мужской?");
