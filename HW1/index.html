@@ -2,38 +2,41 @@
 <html>
     <head>
         <meta charset="utf-8"/>
-        <title>Домашка №1</title>
+        <title>ANKETA</title>
     </head>
     <body>
         <script type="text/javascript">
-            do {
-                var surname=prompt("Введите вашу фамилию");
-                if (surname === " " || isNaN(surname) === false) alert("Вы ошиблись, попробуйте еще раз");
-            }  while (surname === "" || surname === " " || isNaN(surname) === false);
-            do {
-                var name=prompt("Введите ваше имя");
-                if (name === "" || name === " " || isNaN(name === false)) alert("Вы ошиблись, попробуйте еще раз");
-            }  while (name === "" || name === " " || isNaN(name)=== false);
-            do {
-                var patronymic=prompt("Введите ваше отчество");
-                if (patronymic === "" || patronymic === " " || isNaN(patronymic) === false) alert("Вы ошиблись, попробуйте еще раз");
-            }  while (patronymic === "" || patronymic === " " || isNaN(patronymic)=== false);
-            do {
-                var age=prompt("Введите ваш возраст в годах");
-                if (age === "" || age === " " || isNaN(age) || age<=0) alert("Вы ошиблись, попробуйте еще раз");
-            }  while (age === "" || age === " " || isNaN(age) || age<=0);
-            age = Number(age);
-            var age5 = age + 5;
-            var gender = confirm("Ваш пол - мужской?");
-            var pen = "нет";
-            if (gender===true) {
-                if (age>=65) pen = "да";
-                gender = "мужской";}
+            var surname=prompt("Введите вашу фамилию");
+            while (surname === "" || surname === " " || isNaN(surname) === false) {
+                alert("Вы ошиблись, попробуйте еще раз");
+                surname=prompt("Введите вашу фамилию");
+            }
+            var name=prompt("Введите ваше имя");
+            while (name === "" || name === " " || isNaN(name) === false) {
+                alert("Вы ошиблись, попробуйте еще раз");
+                name=prompt("Введите ваше имя");
+            }
+            var patronymic=prompt("Введите ваше отчество");
+            while (patronymic === "" || patronymic === " " || isNaN(patronymic) === false) {
+                alert("Вы ошиблись, попробуйте еще раз");
+                patronymic=prompt("Введите ваше отчество");
+            }
+            var age=prompt("Введите ваш возраст в годах");
+            while (age === "" || age === " " || isNaN(age) || age<=0) {
+                alert("Вы ошиблись, попробуйте еще раз");
+                age=prompt("Введите ваш возраст в годах");
+            }  
+            var age5 = Number(age) + 5;
+            var gender_log = confirm("Ваш пол - мужской?");
+            var pensia = "нет";
+            var gender_str = "мужской";
+            if (gender_log===true) {
+                if (age>=65) pensia = "да";}
             else {
-                if (age>=60) pen = "да";
-                gender = "женский";
+                if (age>=60) pensia = "да";
+                gender_str = "женский";
              } ;
-            alert("ваше ФИО: " + surname + " " + name + " " + patronymic + " \nваш возраст в годах: " + age + "\nваш возраст в днях: " + age*365 + "\nчерез 5 лет вам будет: " + age5 + "\nваш пол: " + gender + "\nвы на пенсии: " + pen);
+            alert("ваше ФИО: " + surname + " " + name + " " + patronymic + " \nваш возраст в годах: " + age + "\nваш возраст в днях: " + age*365 + "\nчерез 5 лет вам будет: " + age5 + "\nваш пол: " + gender_str + "\nвы на пенсии: " + pensia);
         </script>
     </body>
 </html>
