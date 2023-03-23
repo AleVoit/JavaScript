@@ -7,19 +7,20 @@
     <body>
         <script type="text/javascript">
             var stroka=prompt("Введите строку");
+            var kolGl=0;
             function vowels(stroka){
                 let massiv=stroka.split('');
                 let glasnye=[ 'А', 'а', 'Е', 'е', 'Ё', 'ё', 'И', 'и', 'О', 'о', 'У', 'у', 'Ы', 'ы', 'Э', 'э', 'Ю', 'ю', 'Я', 'я'];
-                var kolGl=0;
                 for (var i=0; i<=massiv.length-1; i++){
                     for (var j=0; j<=glasnye.length-1; j++)
                     {
                         if (massiv[i] === glasnye[j]) kolGl+=1;
                     }
                 }
-                alert("Количество русских гласных букв в строке: " + stroka + " = " + kolGl);
+                return kolGl;
             }
             vowels(stroka);
+            alert("Количество русских гласных букв в строке: " + stroka + " = " + kolGl);
         </script>
     </body>
 </html>
