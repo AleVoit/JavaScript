@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>ANKETA</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var surname=prompt("Введите вашу фамилию");
+            while (surname === "" || surname === " " || isNaN(surname) === false) {
+                alert("Вы ошиблись, попробуйте еще раз");
+                surname=prompt("Введите вашу фамилию");
+            }
+            var name=prompt("Введите ваше имя");
+            while (name === "" || name === " " || isNaN(name) === false) {
+                alert("Вы ошиблись, попробуйте еще раз");
+                name=prompt("Введите ваше имя");
+            }
+            var patronymic=prompt("Введите ваше отчество");
+            while (patronymic === "" || patronymic === " " || isNaN(patronymic) === false) {
+                alert("Вы ошиблись, попробуйте еще раз");
+                patronymic=prompt("Введите ваше отчество");
+            }
+            var age=prompt("Введите ваш возраст в годах");
+            while (age === "" || age === " " || isNaN(age) || age<=0) {
+                alert("Вы ошиблись, попробуйте еще раз");
+                age=prompt("Введите ваш возраст в годах");
+            }  
+            var age5 = Number(age) + 5;
+            var gender_log = confirm("Ваш пол - мужской?");
+            var pensia = "нет";
+            var gender_str = "мужской";
+            if (gender_log===true) {
+                if (age>=65) pensia = "да";}
+            else {
+                if (age>=60) pensia = "да";
+                gender_str = "женский";
+             } ;
+            alert("ваше ФИО: " + surname + " " + name + " " + patronymic + " \nваш возраст в годах: " + age + "\nваш возраст в днях: " + age*365 + "\nчерез 5 лет вам будет: " + age5 + "\nваш пол: " + gender_str + "\nвы на пенсии: " + pensia);
+        </script>
+    </body>
+</html>
