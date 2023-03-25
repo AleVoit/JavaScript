@@ -10,15 +10,14 @@
             function treeSum (massiv){
                 let summa=0;
                 for (let i=0; i<massiv.length; i++){
-                if (massiv[i]===undefined) massiv[i]=0;
-                if (typeof(massiv[i])==="object") sum+=treeSum(massiv[i]);
-                else summa+=massiv[i];
-            }
-            return summa;
+                    if (massiv[i]===undefined) massiv[i]=0;
+                    if (typeof(massiv[i])==="object") summa+=treeSum(massiv[i]);
+                    else summa+=massiv[i];
+                }
+                alert("Сумма массива " + massiv + " = " + summa);
+                return summa;
            }
            treeSum(massiv);
-
-           alert("Сумма массива " + massiv + " = " + summa);
         </script>
     </body>
 </html>
