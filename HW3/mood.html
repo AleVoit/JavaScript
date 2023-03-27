@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>MOOD</title>
+    </head>
+    <!--Доработать проект MOOD (слайды N.10) так, чтобы цвета не повторялись.
+    Для контроля повторения цветов использовать хэш.-->
+    <body>
+        <script type="text/javascript"> 
+
+            function randomDiap(n,m) {
+                    return Math.floor(Math.random()*(m-n+1))+n;
+            }
+
+            function mood(colorsCount) {
+                const colors=[ '', 'красный', 'оранжевый', 'жёлтый', 'зелёный', 'голубой', 'синий', 'фиолетовый' ];
+                let byli={};
+                console.log( 'цветов: ' + colorsCount );
+                for ( let i=1; i<=colorsCount; i++ ) {
+                    const n=randomDiap(1,7);
+                    if (i>1 && n in byli) {
+                        colorsCount++;
+                    }
+                    else{
+                        byli[n]=n;
+                        const colorName=colors[n];
+                        console.log( colorName );
+                    }
+                }
+            }
+
+            mood(3);
+
+        </script>
+    </body>
+</html>
