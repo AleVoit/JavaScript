@@ -16,11 +16,17 @@
             function mood(colorsCount) {
                 const colors=[ '', 'красный', 'оранжевый', 'жёлтый', 'зелёный', 'голубой', 'синий', 'фиолетовый' ];
                 let byli={};
+                let m;
                 console.log( 'цветов: ' + colorsCount );
                 for ( let i=1; i<=colorsCount; i++ ) {
                     const n=randomDiap(1,7);
                     if (i>1 && n in byli) {
-                        colorsCount++;
+                        do {
+                            m=randomDiap(1,7);
+                        } while(m in byli);
+                        byli[m]=m;
+                        const colorName=colors[m];
+                        console.log( colorName );
                     }
                     else{
                         byli[n]=n;
