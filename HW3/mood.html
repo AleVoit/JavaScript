@@ -19,20 +19,13 @@
                 let m;
                 console.log( 'цветов: ' + colorsCount );
                 for ( let i=1; i<=colorsCount; i++ ) {
-                    const n=randomDiap(1,7);
-                    if (i>1 && n in byli) {
-                        do {
-                            m=randomDiap(1,7);
-                        } while(m in byli);
-                        byli[m]=m;
-                        const colorName=colors[m];
-                        console.log( colorName );
-                    }
-                    else{
-                        byli[n]=n;
-                        const colorName=colors[n];
-                        console.log( colorName );
-                    }
+                    do {
+                        const n=randomDiap(1,7);
+                        m=n;
+                    } while(m in byli);
+                    byli[m]=m;
+                    const colorName=colors[m];
+                    console.log( colorName );
                 }
             }
 
