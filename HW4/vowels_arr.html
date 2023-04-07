@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>VOWELS</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var stroka=prompt("Введите строку");
+            function forEach(stroka){
+                let massiv=stroka.split('');
+                let glasnye=[ 'А', 'а', 'Е', 'е', 'Ё', 'ё', 'И', 'и', 'О', 'о', 'У', 'у', 'Ы', 'ы', 'Э', 'э', 'Ю', 'ю', 'Я', 'я'];
+                let kolGl=0;
+                massiv.forEach(char=>{
+                    if(glasnye.includes(char))
+                    kolGl++;
+                });
+                return kolGl;
+            }
+            function filter(stroka){
+                let massiv=stroka.split('');
+                let glasnye=[ 'А', 'а', 'Е', 'е', 'Ё', 'ё', 'И', 'и', 'О', 'о', 'У', 'у', 'Ы', 'ы', 'Э', 'э', 'Ю', 'ю', 'Я', 'я'];
+                let kolGl=massiv.filter(element => glasnye.includes(element)).length;
+                return kolGl;
+            }
+            function reduce(stroka){
+                let massiv=stroka.split('');
+                let glasnye=[ 'А', 'а', 'Е', 'е', 'Ё', 'ё', 'И', 'и', 'О', 'о', 'У', 'у', 'Ы', 'ы', 'Э', 'э', 'Ю', 'ю', 'Я', 'я'];
+                let kolGl=massiv.reduce((a,b) => glasnye.includes(b)?a+1:a,0);
+                return kolGl;
+            }
+            console.log("Количество русских гласных букв в строке (метод forEach): " + stroka + " = " + forEach(stroka));
+            console.log("Количество русских гласных букв в строке (метод filter): " + stroka + " = " + filter(stroka));
+            console.log("Количество русских гласных букв в строке (метод reduce): " + stroka + " = " + reduce(stroka));
+        </script>
+    </body>
+</html>
