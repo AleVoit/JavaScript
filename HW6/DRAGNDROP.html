@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>DRAGNDROP</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            window.onload=pos;
+            function pos(){
+                const images=document.getElementsByTagName("img");
+                for (const image of images){
+                    image.style.left=image.offsetLeft;
+                    image.style.top=image.offsetTop;
+                }
+                for (const image of images){
+                    image.style.position="absolute";
+                    image.addEventListener("mousedown", mouseDown);
+                    image.addEventListener("mouseup", mouseUp);
+                }
+            }
+
+            let shiftX, shiftY;
+            let draggedImage=null;
+
+            function mouseDown(eo){
+                eo=eo||window.event;
+                draggedImage=eo.target;
+                shiftX=eo.pageX-draggedImage.offsetLeft;
+                shiftY=eo.pageY-draggedImage.offsetTop;
+
+                window.addEventListener("mousemove", mouseMove);
+            }
+
+            function mouseUp(eo){
+                eo=eo||window.event;
+                draggedImage=null;
+                window.removeEventListener("mousemove", mouseMove);
+            }
+
+            function mouseMove(eo){
+                eo=eo||window.event;
+                if (draggedImage){
+                    draggedImage.style.left=(eo.pageX-shiftX)+"px";
+                    draggedImage.style.top=(eo.pageY-shiftY)+"px";
+                }
+            }
+        </script>
+    </body>
+</html>

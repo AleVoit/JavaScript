@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>VALID_FORM</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            // <form name=FFF onsubmit="formValid(eo)">
+            // <input type=text name=razr onblur="validRazr(false)">
+            // <span id=razrError></span>
+                
+            document.forms.FFF.elements.razr.addEventListener("blur",(eo)=>validRazr(false));
+
+            function validRazr(){
+                const razrElem=document.forms.FFF.elements.razr;
+                const razrValue=razrElem.value;
+
+                const errorElem=document.getElementById("razrError");
+                let errCount=0;
+                if (razrValue){
+                    //ok
+                    erorElem.innerHTML="";
+                }
+                else {
+                    //error 
+                    errorElem.innerHTML="заполните поле!!!";
+                    if (focusOnErr)
+                        razrElem.focus();
+                    errCount++;
+                }
+                return errCount;
+            }
+
+            function formVald(eo){
+                let errCount=0;
+                errCount+=validRazr(!errCount);
+                errCount+=validName(!errCount);
+                errCount+=validURL(!errCount);
+
+                if(errCount)
+                    eo.preventDefault();
+            }
+            
+        </script>
+        
+        
+    </body>
+</html>
