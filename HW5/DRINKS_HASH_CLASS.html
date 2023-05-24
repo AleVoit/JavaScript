@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>DRINKS_HASH_CLASS</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            class HashStorageClass {
+
+                #storage;
+                constructor() {
+                    this.#storage={};
+                }
+                
+                addValue(key, value) {
+                    this.#storage[key]=value;  
+                }
+
+                getValue(key) {
+                    return this.#storage[key];
+                }
+
+                deleteValue(key) {
+                    if (key in this.#storage) {
+                        delete this.#storage[key];
+                        return true;
+                    }
+                    return false;    
+                }
+
+                getKeys() {
+                    return Object.keys(this.#storage);
+                }
+            }
+
+            const drinkStorage=new HashStorageClass;
+
+            function addDrink() {
+                const nazvanie=prompt("Введите название напитка");
+                const alco=confirm("Он алкогольный?");
+                var alcoStr="да";
+                if (!alco) alcoStr = "нет";
+                const recipe=prompt("Какой у него рецепт?");
+                drinkStorage.addValue(nazvanie,{alcoStr,recipe});
+            }
+
+            function getDrink(){
+                const nazvanie=prompt("Введите название напитка");
+                const info=drinkStorage.getValue(nazvanie);
+                if ( !info ) {
+                    alert("Такого напитка в хранилище нет");
+                }
+                else {
+                    alert(`Название напитка: `+nazvanie+`\nВ напитке есть алкоголь: ${info.alcoStr} \nРецепт напитка: ${info.recipe}`);  
+                }
+            }
+
+            function deleteDrink(){
+                const nazvanie=prompt("Введите название напитка");
+                const res=drinkStorage.deleteValue(nazvanie);
+                if ( res ) {
+                    alert("напиток удалён");
+                }
+                else {
+                    alert("такого напитка нет");  
+                }
+            }
+
+            function listDrink(){
+                const list=drinkStorage.getKeys();
+                alert(list.join("\n"));
+            }
+
+        </script>
+        <input type="button" value="добавить напиток" onclick="addDrink()">
+        <input type="button" value="посмотреть рецепт напитка" onclick="getDrink()">
+        <input type="button" value="удалить напиток" onclick="deleteDrink()">
+        <input type="button" value="посмотреть список напитков" onclick="listDrink()">
+    </body>
+</html>
